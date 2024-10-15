@@ -4,12 +4,12 @@ BASE = "http://127.0.0.1:5000/"
 
 # Test data for strips
 strips_data = [
-    {"title": "Batman: Year One", "author": "Frank Miller", "publicationYear": 1987, "genre": "Superhero"},
-    {"title": "Watchmen", "author": "Alan Moore", "publicationYear": 1986, "genre": "Superhero"},
-    {"title": "The Sandman", "author": "Neil Gaiman", "publicationYear": 1989, "genre": "Fantasy"},
-    {"title": "Maus", "author": "Art Spiegelman", "publicationYear": 1980, "genre": "Historical"},
-    {"title": "Spider-Man: Blue", "author": "Jeph Loeb", "publicationYear": 2002, "genre": "Superhero"},
-    {"title": "Spider-Man: The New Avenger", "author": "J. Michael Straczynski", "publicationYear": 2004, "genre": "Superhero"},
+    {"strip_id": 1, "title": "Batman: Year One", "author": "Frank Miller", "publicationYear": 1987, "genre": "Superhero"},
+    {"strip_id": 2, "title": "Watchmen", "author": "Alan Moore", "publicationYear": 1986, "genre": "Superhero"},
+    {"strip_id": 3, "title": "The Sandman", "author": "Neil Gaiman", "publicationYear": 1989, "genre": "Fantasy"},
+    {"strip_id": 4, "title": "Maus", "author": "Art Spiegelman", "publicationYear": 1980, "genre": "Historical"},
+    {"strip_id": 5, "title": "Spider-Man: Blue", "author": "Jeph Loeb", "publicationYear": 2002, "genre": "Superhero"},
+    {"strip_id": 6, "title": "Spider-Man: The New Avenger", "author": "J. Michael Straczynski", "publicationYear": 2004, "genre": "Superhero"},
 ]
 
 # Test data for users
