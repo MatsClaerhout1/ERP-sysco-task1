@@ -4,12 +4,12 @@ BASE = "http://127.0.0.1:5000/"
 
 # Test data for strips
 strips_data = [
-    {"strip_id": 1, "title": "Batman: Year One", "author": "Frank Miller", "publicationYear": 1987, "genre": "Superhero"},
-    {"strip_id": 2, "title": "Watchmen", "author": "Alan Moore", "publicationYear": 1986, "genre": "Superhero"},
-    {"strip_id": 3, "title": "The Sandman", "author": "Neil Gaiman", "publicationYear": 1989, "genre": "Fantasy"},
-    {"strip_id": 4, "title": "Maus", "author": "Art Spiegelman", "publicationYear": 1980, "genre": "Historical"},
-    {"strip_id": 5, "title": "Spider-Man: Blue", "author": "Jeph Loeb", "publicationYear": 2002, "genre": "Superhero"},
-    {"strip_id": 6, "title": "Spider-Man: The New Avenger", "author": "J. Michael Straczynski", "publicationYear": 2004, "genre": "Superhero"},
+    {"strip_id": 1, "title": "Batman: Year One", "author": "Frank Miller", "publicationYear": 1987, "genre": "Superhero", "url": "https://m.media-amazon.com/images/M/MV5BNDk0M2YzZTEtZGU1YS00MGVmLThmNjEtODE3MGRiNTVjN2FiXkEyXkFqcGc@._V1_.jpg"},
+    {"strip_id": 2, "title": "Watchmen", "author": "Alan Moore", "publicationYear": 1986, "genre": "Superhero", "url": "https://m.media-amazon.com/images/M/MV5BYmJiNTUwYWUtZDllNi00ODdjLWFmNTEtOTVlNmYxYTZhNzYzXkEyXkFqcGc@._V1_.jpg"},
+    {"strip_id": 3, "title": "The Sandman", "author": "Neil Gaiman", "publicationYear": 1989, "genre": "Fantasy", "url": "https://upload.wikimedia.org/wikipedia/en/8/85/Sandman_no.1_%28Modern_Age%29.comiccover.jpg"},
+    {"strip_id": 4, "title": "Maus", "author": "Art Spiegelman", "publicationYear": 1980, "genre": "Historical", "url": "https://upload.wikimedia.org/wikipedia/en/7/7d/Maus_%28volume_1%29_cover.jpg"},
+    {"strip_id": 5, "title": "Spider-Man: Blue", "author": "Jeph Loeb", "publicationYear": 2002, "genre": "Superhero", "url": "https://cdn.marvel.com/u/prod/marvel/i/mg/b/f0/5d93af03bb81b/standard_incredible.jpg"},
+    {"strip_id": 6, "title": "Spider-Man: The New Avenger", "author": "J. Michael Straczynski", "publicationYear": 2004, "genre": "Superhero", "url": "https://m.media-amazon.com/images/I/81Mz4p-hzLL._AC_UF1000,1000_QL80_.jpg"},
 ]
 
 # Test data for users
