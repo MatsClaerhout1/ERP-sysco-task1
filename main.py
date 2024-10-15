@@ -14,7 +14,7 @@ db = SQLAlchemy(app)
 # -------------------- Models --------------------
 @app.route('/')
 def home():
-    return "Welcome to the API mathafacker!"
+    return "Welcome to the API mathafacker! image addeddd"
 
 # Comic Strip model
 class StripModel(db.Model):
@@ -23,10 +23,10 @@ class StripModel(db.Model):
     author = db.Column(db.String(100), nullable=False)
     publicationYear = db.Column(db.Integer, nullable=False)
     genre = db.Column(db.String(50), nullable=False)
-    url = db.Column(db.String(200), nullable=True)
+    image = db.Column(db.String(200), nullable=True)
 
     def __repr__(self):
-        return f"Strip(strip_id={self.strip_id}, title={self.title}, author={self.author}, year={self.publicationYear}, genre={self.genre}, url={self.url})"
+        return f"Strip(strip_id={self.strip_id}, title={self.title}, author={self.author}, year={self.publicationYear}, genre={self.genre}, image={self.image})"
 
 # User model
 class UserModel(db.Model):
@@ -57,14 +57,14 @@ strip_put_args.add_argument("title", type=str, help="Title of the strip is requi
 strip_put_args.add_argument("author", type=str, help="Author of the strip is required", required=True)
 strip_put_args.add_argument("publicationYear", type=int, help="Publication year is required", required=True)
 strip_put_args.add_argument("genre", type=str, help="Genre is required", required=True)
-strip_put_args.add_argument("url", type=str, help="URL is required", required=True)
+strip_put_args.add_argument("image", type=str, help="Image is required", required=True)
 
 strip_update_args = reqparse.RequestParser()
 strip_update_args.add_argument("title", type=str)
 strip_update_args.add_argument("author", type=str)
 strip_update_args.add_argument("publicationYear", type=int)
 strip_update_args.add_argument("genre", type=str)
-strip_update_args.add_argument("url", type=str)
+strip_update_args.add_argument("image", type=str)
 
 # User parser
 user_put_args = reqparse.RequestParser()
@@ -96,7 +96,7 @@ strip_fields = {
     'author': fields.String,
     'publicationYear': fields.Integer,
     'genre': fields.String,
-    'url': fields.String
+    'image': fields.String
 }
 
 user_fields = {
@@ -139,7 +139,7 @@ class Strip(Resource):
         result = StripModel.query.filter_by(strip_id=strip_id).first()
         if result:
             abort(409, message="Strip id taken...")
-        strip = StripModel(strip_id=strip_id, title=args['title'], author=args['author'], publicationYear=args['publicationYear'], genre=args['genre'], url=args['url'])
+        strip = StripModel(strip_id=strip_id, title=args['title'], author=args['author'], publicationYear=args['publicationYear'], genre=args['genre'], image=args['image'])
         db.session.add(strip)
         db.session.commit()
         return strip, 201
@@ -158,8 +158,8 @@ class Strip(Resource):
             result.publicationYear = args['publicationYear']
         if args['genre']:
             result.genre = args['genre']
-        if args['url']:
-            result.url = args['url']
+        if args['image']:
+            result.image = args['image']
         db.session.commit()
         return result
 
