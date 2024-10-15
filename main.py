@@ -115,18 +115,19 @@ collection_fields = {
 # Strip resource
 class Strip(Resource):
     @marshal_with(strip_fields)
-    def get(self, strip_id):
-        result = StripModel.query.filter_by(strip_id=strip_id).first()
-        if not result:
-            abort(404, message="Could not find strip with that id")
-        return result
-
-    @marshal_with(strip_fields)
-    def getAll(self):
-        result = StripModel.query.all()  # Fetch all strips from the database
-        if not result:
-            abort(404, message="No strips found")  # Optional: Handle no strips case
-        return result
+    def get(self, strip_id=None):
+        if strip_id is None:
+            # Fetch all strips
+            result = StripModel.query.all()  # Fetch all strips from the database
+            if not result:
+                abort(404, message="No strips found")  # Optional: Handle no strips case
+            return result
+        else:
+            # Fetch a single strip by ID
+            result = StripModel.query.filter_by(strip_id=strip_id).first()
+            if not result:
+                abort(404, message="Could not find strip with that id")
+            return result
 
     @marshal_with(strip_fields)
     def put(self, strip_id):
@@ -249,9 +250,7 @@ class Collection(Resource):
         return '', 204
 
 # -------------------- API Routes --------------------
-
-api.add_resource(Strip, '/strips/<int:strip_id>')
-api.add_resource(Strip, '/strips')
+api.add_resource(Strip, '/strips', '/strips/<int:strip_id>') 
 api.add_resource(User, '/users/<int:user_id>')
 api.add_resource(Collection, '/collections/<int:collection_id>')
 
