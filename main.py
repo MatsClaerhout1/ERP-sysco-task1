@@ -106,7 +106,10 @@ collection_fields = {
 }
 
 # -------------------- Resources --------------------
-
+@app.route('/')
+def home():
+    return "Welcome to the API!"
+    
 # Strip resource
 class Strip(Resource):
     @marshal_with(strip_fields)
