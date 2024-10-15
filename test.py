@@ -4,12 +4,12 @@ BASE = "http://127.0.0.1:5000/"
 
 # Test data for strips
 strips_data = [
-    {"strip_id": 1, "title": "Batman: Year One", "author": "Frank Miller", "publicationYear": 1987, "genre": "Superhero", "url": "/images/batman_year_one.jpg"},
-    {"strip_id": 2, "title": "Watchmen", "author": "Alan Moore", "publicationYear": 1986, "genre": "Superhero", "url": "/images/watchmen.jpg"},
-    {"strip_id": 3, "title": "The Sandman", "author": "Neil Gaiman", "publicationYear": 1989, "genre": "Fantasy", "url": "/images/sandman.jpg"},
-    {"strip_id": 4, "title": "Maus", "author": "Art Spiegelman", "publicationYear": 1980, "genre": "Historical", "url": "/images/maus.jpg"},
-    {"strip_id": 5, "title": "Spider-Man: Blue", "author": "Jeph Loeb", "publicationYear": 2002, "genre": "Superhero", "url": "/images/spiderman_blue.jpg"},
-    {"strip_id": 6, "title": "Spider-Man: The New Avenger", "author": "J. Michael Straczynski", "publicationYear": 2004, "genre": "Superhero", "url": "/images/spiderman_new_avenger.jpg"},
+    {"strip_id": 1, "title": "Batman: Year One", "author": "Frank Miller", "publicationYear": 1987, "genre": "Superhero", "image": "/images/batman_year_one.jpg"},
+    {"strip_id": 2, "title": "Watchmen", "author": "Alan Moore", "publicationYear": 1986, "genre": "Superhero", "image": "/images/watchmen.jpg"},
+    {"strip_id": 3, "title": "The Sandman", "author": "Neil Gaiman", "publicationYear": 1989, "genre": "Fantasy", "image": "/images/sandman.jpg"},
+    {"strip_id": 4, "title": "Maus", "author": "Art Spiegelman", "publicationYear": 1980, "genre": "Historical", "image": "/images/maus.jpg"},
+    {"strip_id": 5, "title": "Spider-Man: Blue", "author": "Jeph Loeb", "publicationYear": 2002, "genre": "Superhero", "image": "/images/spiderman_blue.jpg"},
+    {"strip_id": 6, "title": "Spider-Man: The New Avenger", "author": "J. Michael Straczynski", "publicationYear": 2004, "genre": "Superhero", "image": "/images/spiderman_new_avenger.jpg"},
 ]
 
 # Test data for users
