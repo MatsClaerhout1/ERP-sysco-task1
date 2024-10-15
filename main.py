@@ -251,6 +251,7 @@ class Collection(Resource):
 # -------------------- API Routes --------------------
 
 api.add_resource(Strip, '/strips/<int:strip_id>')
+api.add_resource(Strip, '/strips')
 api.add_resource(User, '/users/<int:user_id>')
 api.add_resource(Collection, '/collections/<int:collection_id>')
 
