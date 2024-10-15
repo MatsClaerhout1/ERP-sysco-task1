@@ -3,13 +3,18 @@ import requests
 from flask import Flask
 from flask_restful import Api, Resource, reqparse, fields, marshal_with, abort
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS  # Import CORS
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for the entire app
 api = Api(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
 
 # -------------------- Models --------------------
+@app.route('/')
+def home():
+    return "Welcome to the API mathafacker!"
 
 # Comic Strip model
 class StripModel(db.Model):
@@ -106,10 +111,7 @@ collection_fields = {
 }
 
 # -------------------- Resources --------------------
-@app.route('/')
-def home():
-    return "Welcome to the API!"
-    
+
 # Strip resource
 class Strip(Resource):
     @marshal_with(strip_fields)
@@ -248,5 +250,5 @@ api.add_resource(Collection, '/collections/<int:collection_id>')
 # -------------------- Main --------------------
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # Lees de poort uit de omgevingsvariabelen
-    app.run(host="0.0.0.0", port=port) 
+    port = int(os.environ.get("PORT", 5000))  # Read the port from environment variables
+    app.run(host="0.0.0.0", port=port)
