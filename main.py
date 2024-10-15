@@ -1,3 +1,4 @@
+import os
 import requests
 from flask import Flask
 from flask_restful import Api, Resource, reqparse, fields, marshal_with, abort
@@ -243,6 +244,6 @@ api.add_resource(Collection, '/collections/<int:collection_id>')
 
 # -------------------- Main --------------------
 
-if __name__ == '__main__':
-    db.create_all()  # Create database tables
-    app.run(debug=True)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))  # Lees de poort uit de omgevingsvariabelen
+    app.run(host="0.0.0.0", port=port) 
