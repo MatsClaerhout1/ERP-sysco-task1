@@ -122,6 +122,13 @@ class Strip(Resource):
         return result
 
     @marshal_with(strip_fields)
+    def getAll(self):
+        result = StripModel.query.all()  # Fetch all strips from the database
+        if not result:
+            abort(404, message="No strips found")  # Optional: Handle no strips case
+        return result
+
+    @marshal_with(strip_fields)
     def put(self, strip_id):
         args = strip_put_args.parse_args()
         result = StripModel.query.filter_by(strip_id=strip_id).first()
