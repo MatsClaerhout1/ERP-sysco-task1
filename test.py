@@ -4,12 +4,12 @@ BASE = "http://127.0.0.1:5000/"
 
 # Test data for strips
 strips_data = [
-    {"strip_id": 1, "title": "Batman: Year One", "author": "Frank Miller", "publicationYear": 1987, "genre": "Superhero", "image": "/images/batman_year_one.jpg"},
-    {"strip_id": 2, "title": "Watchmen", "author": "Alan Moore", "publicationYear": 1986, "genre": "Superhero", "image": "/images/watchmen.jpg"},
-    {"strip_id": 3, "title": "The Sandman", "author": "Neil Gaiman", "publicationYear": 1989, "genre": "Fantasy", "image": "/images/sandman.jpg"},
-    {"strip_id": 4, "title": "Maus", "author": "Art Spiegelman", "publicationYear": 1980, "genre": "Historical", "image": "/images/maus.jpg"},
-    {"strip_id": 5, "title": "Spider-Man: Blue", "author": "Jeph Loeb", "publicationYear": 2002, "genre": "Superhero", "image": "/images/spiderman_blue.jpg"},
-    {"strip_id": 6, "title": "Spider-Man: The New Avenger", "author": "J. Michael Straczynski", "publicationYear": 2004, "genre": "Superhero", "image": "/images/spiderman_new_avenger.jpg"},
+    {"strip_id": 1, "title": "Batman: Year One", "author": "Frank Miller", "publicationYear": 1987, "genre": "Superhero"},
+    {"strip_id": 2, "title": "Watchmen", "author": "Alan Moore", "publicationYear": 1986, "genre": "Superhero"},
+    {"strip_id": 3, "title": "The Sandman", "author": "Neil Gaiman", "publicationYear": 1989, "genre": "Fantasy"},
+    {"strip_id": 4, "title": "Maus", "author": "Art Spiegelman", "publicationYear": 1980, "genre": "Historical"},
+    {"strip_id": 5, "title": "Spider-Man: Blue", "author": "Jeph Loeb", "publicationYear": 2002, "genre": "Superhero"},
+    {"strip_id": 6, "title": "Spider-Man: The New Avenger", "author": "J. Michael Straczynski", "publicationYear": 2004, "genre": "Superhero"},
 ]
 
 # Test data for users
@@ -37,7 +37,6 @@ for i in range(len(strips_data)):
     print(f"PUT Response for Strip {i + 1}: {response.json()}")
 
 input("Press Enter to continue...\n")
-
 # Test PUT: Adding users to the database
 print("Testing PUT (Create Users):")
 for i in range(len(users_data)):
@@ -56,7 +55,7 @@ input("Press Enter to continue...\n")
 
 # Test GET all strips (Retrieve all)
 print("Testing GET All Strips (Retrieve all):")
-response = requests.get(BASE + "strips/")  # Get all strips
+response = requests.get(BASE + "strips")  # Get all strips
 if response.status_code == 200:
     print("GET All Strips Response:", response.json())
 else:
