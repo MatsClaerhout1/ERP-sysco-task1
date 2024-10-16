@@ -1,0 +1,9 @@
+# Test data for strips
+strips_data = [
+    {"strip_id": 1, "title": "Batman: Year One", "author": "Frank Miller", "publicationYear": 1987, "genre": "Superhero", "image_url": "https://upload.wikimedia.org/wikipedia/en/b/b1/Batman_vol._1-404_%28January_1987%29.jpg"},
+    {"strip_id": 2, "title": "Watchmen", "author": "Alan Moore", "publicationYear": 1986, "genre": "Superhero", "image_url": "https://upload.wikimedia.org/wikipedia/en/a/a2/Watchmen%2C_issue_1.jpg"},
+    {"strip_id": 3, "title": "The Sandman", "author": "Neil Gaiman", "publicationYear": 1989, "genre": "Fantasy", "image_url": "https://upload.wikimedia.org/wikipedia/en/8/85/Sandman_no.1_%28Modern_Age%29.comiccover.jpg"},
+    {"strip_id": 4, "title": "Maus", "author": "Art Spiegelman", "publicationYear": 1980, "genre": "Historical", "image_url": "https://upload.wikimedia.org/wikipedia/en/7/7d/Maus_%28volume_1%29_cover.jpg"},
+    {"strip_id": 5, "title": "Spider-Man: Blue", "author": "Jeph Loeb", "publicationYear": 2002, "genre": "Superhero", "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/Spider-Man_%282002_film%29_poster.jpg/220px-Spider-Man_%282002_film%29_poster.jpg"},
+    {"strip_id": 6, "title": "Spider-Man: The New Avenger", "author": "J. Michael Straczynski", "publicationYear": 2004, "genre": "Superhero", "image_url": "https://upload.wikimedia.org/wikipedia/en/7/73/New_Avengers_Vol_2_1.jpg"},
+]
