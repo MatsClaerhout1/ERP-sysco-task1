@@ -1,12 +1,12 @@
 import os
 import requests
-from flask import Flask
-from flask_restful import Api, Resource, reqparse, fields, marshal_with, abort
-from flask_sqlalchemy import SQLAlchemy
-from flask_cors import CORS  # Import CORS
+from flask import Flask # type: ignore
+from flask_restful import Api, Resource, reqparse, fields, marshal_with, abort # type: ignore
+from flask_sqlalchemy import SQLAlchemy # type: ignore
+from flask_cors import CORS  # type: ignore 
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for the entire app
+CORS(app)
 api = Api(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
@@ -23,10 +23,10 @@ class StripModel(db.Model):
     author = db.Column(db.String(100), nullable=False)
     publicationYear = db.Column(db.Integer, nullable=False)
     genre = db.Column(db.String(50), nullable=False)
-    image = db.Column(db.String(200), nullable=True)
+    #image = db.Column(db.String(200), nullable=True)
 
     def __repr__(self):
-        return f"Strip(strip_id={self.strip_id}, title={self.title}, author={self.author}, year={self.publicationYear}, genre={self.genre}, image={self.image})"
+        return f"Strip(strip_id={self.strip_id}, title={self.title}, author={self.author}, year={self.publicationYear}, genre={self.genre})"
 
 # User model
 class UserModel(db.Model):
@@ -49,6 +49,7 @@ class CollectionModel(db.Model):
     def __repr__(self):
         return f"Collection(collection_id={self.collection_id}, userId={self.userId}, stripId={self.stripId}, status={self.status})"
 
+
 # -------------------- Parsers --------------------
 
 # Strip parser
@@ -57,14 +58,14 @@ strip_put_args.add_argument("title", type=str, help="Title of the strip is requi
 strip_put_args.add_argument("author", type=str, help="Author of the strip is required", required=True)
 strip_put_args.add_argument("publicationYear", type=int, help="Publication year is required", required=True)
 strip_put_args.add_argument("genre", type=str, help="Genre is required", required=True)
-strip_put_args.add_argument("image", type=str, help="Image is required", required=True)
+#strip_put_args.add_argument("image", type=str, help="Image is required", required=True)
 
 strip_update_args = reqparse.RequestParser()
 strip_update_args.add_argument("title", type=str)
 strip_update_args.add_argument("author", type=str)
 strip_update_args.add_argument("publicationYear", type=int)
 strip_update_args.add_argument("genre", type=str)
-strip_update_args.add_argument("image", type=str)
+#strip_update_args.add_argument("image", type=str)
 
 # User parser
 user_put_args = reqparse.RequestParser()
@@ -96,9 +97,8 @@ strip_fields = {
     'author': fields.String,
     'publicationYear': fields.Integer,
     'genre': fields.String,
-    'image': fields.String
+    #'image': fields.String
 }
-
 user_fields = {
     'user_id': fields.Integer,
     'firstName': fields.String,
@@ -114,6 +114,7 @@ collection_fields = {
     'status': fields.String
 }
 
+
 # -------------------- Resources --------------------
 
 # Strip resource
@@ -122,7 +123,7 @@ class Strip(Resource):
     def get(self, strip_id=None):
         if strip_id is None:
             # Fetch all strips
-            result = StripModel.query.all()  # Fetch all strips from the database
+            result = StripModel.query.all()
             if not result:
                 abort(404, message="No strips found")  # Optional: Handle no strips case
             return result
@@ -139,7 +140,7 @@ class Strip(Resource):
         result = StripModel.query.filter_by(strip_id=strip_id).first()
         if result:
             abort(409, message="Strip id taken...")
-        strip = StripModel(strip_id=strip_id, title=args['title'], author=args['author'], publicationYear=args['publicationYear'], genre=args['genre'], image=args['image'])
+        strip = StripModel(strip_id=strip_id, title=args['title'], author=args['author'], publicationYear=args['publicationYear'], genre=args['genre'])
         db.session.add(strip)
         db.session.commit()
         return strip, 201
@@ -158,8 +159,6 @@ class Strip(Resource):
             result.publicationYear = args['publicationYear']
         if args['genre']:
             result.genre = args['genre']
-        if args['image']:
-            result.image = args['image']
         db.session.commit()
         return result
 
@@ -169,7 +168,8 @@ class Strip(Resource):
             abort(404, message="Could not find strip with that id")
         db.session.delete(result)
         db.session.commit()
-        return '', 204
+        return {"message": f"Strip with id {strip_id} deleted successfully"}, 204
+
 
 # User resource
 class User(Resource):
@@ -263,5 +263,7 @@ api.add_resource(Collection, '/collections/<int:collection_id>')
 # -------------------- Main --------------------
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # Read the port from environment variables
+    with app.app_context():
+        db.create_all()
+    port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
